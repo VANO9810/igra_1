@@ -4,6 +4,8 @@ okno = display.set_mode((1200,900))
 game = True
 clock = time.Clock()
 
+Fon = transform.scale(image.load('fon_igri_1.png'), (1200,700))
+
 class GameSprite(sprite.Sprite):
     def __init__(self, pik, x,y):
         super().__init__()
@@ -49,6 +51,7 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
+    okno.blit(Fon, (0,0))
     igrok.control()
     zombi.follow()
     clock.tick(60)
